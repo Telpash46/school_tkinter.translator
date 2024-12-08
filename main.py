@@ -1,16 +1,24 @@
-# This is a sample Python script.
+import tkinter as tk
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+root = tk.Tk()
+root.geometry('700x700')
+root.title('Перекладач')
+
+def translate(event=None):
+    print(prompt_obj.get())
+
+prompt_help_sign = tk.Label(root, text="Уведіть будь-яке українське слово у це поле: ", font=('Arial', 14))
+prompt_help_sign.pack()
+tk.Label(root, font=("Arial", 1)).pack()
+
+prompt_obj = tk.Entry(root, font=('Arial', 12))
+prompt_obj.pack()
+prompt_obj.bind("<Return>", translate)
+tk.Label(root, font=("Arial", 10)).pack()
+
+prompt_submit = tk.Button(root, font=('Arial', 14), text="Перекласти", command=translate)
+prompt_submit.pack()
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+root.mainloop()
